@@ -296,9 +296,14 @@
         _source = source;
         NSURL *imageURL = [NSURL URLWithString:uri];
         
+        // Data can be captured for base64 image
+        NSData *data = [NSData dataWithContentsOfURL:imageURL];
+        
+        
         if (![[uri substringToIndex:4] isEqualToString:@"http"]) {
             @try {
-                UIImage *image = RCTImageFromLocalAssetURL(imageURL);
+                // Change implementation so that app doesnt crash with base64 image
+                UIImage *image = [[UIImage alloc] initWithData:data];
                 if (image) { // if local image
                     [self setImage:image];
                     if (_onPhotoViewerLoad) {
