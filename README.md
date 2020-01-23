@@ -1,3 +1,6 @@
+# Attention Drive Developers
+The reason we are using this repository is because it has the necessary OBJ-C code to not crash app when receiving a base64 image string on IOS. This is only a temporary solution.
+
 # react-native-photo-view
 
 Provides custom Image view for React Native that allows to perform
